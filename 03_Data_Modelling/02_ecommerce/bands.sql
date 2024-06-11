@@ -44,4 +44,12 @@ SELECT * FROM albums WHERE release_year=1982 OR band_id=4; -- Similar for AND to
 
 SELECT * FROM albums WHERE release_year BETWEEN 1890 AND 2000;
 
-DELETE FROM albums WHERE release_year=4
+DELETE FROM albums WHERE release_year=4;
+
+SELECT * FROM bands JOIN albums ON bands.id=albums.band_id;
+
+SELECT * FROM bands LEFT JOIN albums ON bands.id=albums.band_id; --Takes everything from the Left side of the table
+
+SELECT band_id, COUNT(band_id) FROM albums GROUP BY band_id;
+
+SELECT bands.name, COUNT(albums.band_id) FROM bands LEFT JOIN albums on bands.id=albums.band_id GROUP BY bands.id;
